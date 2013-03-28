@@ -112,12 +112,12 @@
     <!-- Used for diagnostic info screens, precise translation isn't needed. Unmounts the SD card from the phone, meaning it will become available for an attached computer  [CHAR LIMIT=25] -->
     <string name="sdcard_unmount" product="nosdcard">Unmount USB storage</string>
     <!-- Used for diagnostic info screens, precise translation isn't needed. Unmounts the SD card from the phone, meaning it will become available for an attached computer  -->
-    <string name="sdcard_unmount" product="default">Unmount SD card</string>
+    <string name="sdcard_unmount" product="default">Unmount internal flash memory</string>
 
     <!-- Used for diagnostic info screens, precise translation isn't needed. Formats the SD card in the phone, meaning it will be erased and reformatted [CHAR LIMIT=25] -->
     <string name="sdcard_format" product="nosdcard">Erase USB storage</string>
     <!-- Used for diagnostic info screens, precise translation isn't needed. Formats the SD card in the phone, meaning it will be erased and reformatted -->
-    <string name="sdcard_format" product="default">Erase SD card</string>
+    <string name="sdcard_format" product="default">Erase internal flash memory</string>
 
     <!-- choice for the font size spinner -->
     <string name="small_font">Small</string>
@@ -495,21 +495,21 @@
     <!-- Message when there is no SD card present [CHAR LIMIT=30] -->
     <string name="sdcard_settings_not_present_status" product="nosdcard">USB storage not mounted</string>
     <!-- Message when there is no SD card present -->
-    <string name="sdcard_settings_not_present_status" product="default">No SD card</string>
+    <string name="sdcard_settings_not_present_status" product="default">No storage</string>
     <!-- Th label for the available (free) sapce on the SD card -->
     <string name="sdcard_settings_available_bytes_label">Available bytes:</string>
     <!-- Message when the SD card is being used by the computer as mass storage [CHAR LIMIT=30] -->
     <string name="sdcard_settings_mass_storage_status" product="nosdcard">USB storage is being used as a mass storage device</string>
     <!-- Message when the SD card is being used by the computer as mass storage -->
-    <string name="sdcard_settings_mass_storage_status" product="default">SD card is being used as a mass storage device</string>
+    <string name="sdcard_settings_mass_storage_status" product="default">This storage is being used as a mass storage device</string>
     <!-- Message when it is safe to remove the SD card [CHAR LIMIT=30] -->
     <string name="sdcard_settings_unmounted_status" product="nosdcard">It\'s now safe to remove the USB storage</string>
     <!-- Message when it is safe to remove the SD card -->
-    <string name="sdcard_settings_unmounted_status" product="default">It\'s now safe to remove the SD card</string>
+    <string name="sdcard_settings_unmounted_status" product="default">It\'s now safe to remove the storage</string>
     <!-- Error message when the SD card was removed without properly unmounting [CHAR LIMIT=30] -->
     <string name="sdcard_settings_bad_removal_status" product="nosdcard">USB storage was removed while still in use!</string>
     <!-- Error message when the SD card was removed without properly unmounting -->
-    <string name="sdcard_settings_bad_removal_status" product="default">SD card was removed while still in use!</string>
+    <string name="sdcard_settings_bad_removal_status" product="default">This storage was removed while still in use!</string>
     <!-- Label for used bytes on the SD card -->
     <string name="sdcard_settings_used_bytes_label">Used bytes:</string>
     <!-- Message when it is scanning the SD card for new files [CHAR LIMIT=30]  -->
@@ -519,7 +519,7 @@
     <!-- Message when the SD card is mounted as read only [CHAR LIMIT=30] -->
     <string name="sdcard_settings_read_only_status" product="nosdcard">USB storage mounted read-only</string>
     <!-- Message when the SD card is mounted as read only -->
-    <string name="sdcard_settings_read_only_status" product="default">SD card mounted read-only</string>
+    <string name="sdcard_settings_read_only_status" product="default">This storage mounted read-only</string>
     <!-- SetupWizard strings used by DateTimeSettingsSetupWizard.  The button label for going to the next screen without storing the setting. [CHAR LIMIT=5] -->
     <string name="skip_label">Skip</string>
     <!-- SetupWizard strings used by DateTimeSettingsSetupWizard.  The button label for going to the next screen. -->
@@ -546,7 +546,7 @@
     <!-- The title of the activity to adjust SD card settings [CHAR LIMIT=25] -->
     <string name="sd_card_settings_label" product="nosdcard">USB storage</string>
     <!-- The title of the activity to adjust SD card settings-->
-    <string name="sd_card_settings_label" product="default">SD card</string>
+    <string name="sd_card_settings_label" product="default">Storage</string>
     <!-- The title of the activity to adjust proxy settings -->
     <string name="proxy_settings_label">Proxy settings</string>
 
@@ -1730,7 +1730,7 @@
     <!-- [CHAR LIMIT=100] Main settings screen item's summary for the SD card and storage settings -->
     <string name="storage_settings_summary" product="nosdcard">Unmount USB storage, view available storage</string>
     <!-- [CHAR LIMIT=100] Main settings screen item's summary for the SD card and storage settings -->
-    <string name="storage_settings_summary" product="default">Unmount SD card, view available storage</string>
+    <string name="storage_settings_summary" product="default">Unmount this storage, view available storage</string>
     <!-- Do not translate. About phone, status item title -->
     <string name="status_imei">IMEI</string>
     <!-- Do not translate. About phone, status item title -->
@@ -1784,7 +1784,7 @@
     <!-- SD card & phone storage settings screen heading.  The total amount of storage space for some storage partition.  For example, this is listed under both the "Internal phone storage" section and the "SD card" section -->
     <string name="memory_size">Total space</string>
     <!-- SD card & phone storage settings summary. Displayed when the total memory usage is being calculated. Will be replaced with a number like "12.3 GB" when finished calucating. [CHAR LIMIT=30] -->
-    <string name="memory_calculating_size">Calculating…</string>
+	<string name="memory_calculating_size">Calculating...</string>
     <!-- SD card & phone storage settings title. Displayed as a title when showing the total usage of applications installed. Below it will be a number like "123.4 MB" indicating used storage. [CHAR LIMIT=50] -->
     <string name="memory_apps_usage">Apps</string>
     <!-- SD card & phone storage settings title. Displayed as a title when showing the total usage of media on the device. Below it will be a number like "123.4 MB" indicating used storage. [CHAR LIMIT=50] -->
@@ -1800,7 +1800,7 @@
     <!-- SD card & phone storage settings item title that will result in the phone unmounting the SD card.  This will be done before the user phyiscally removes the SD card from the phone.  Kind of like the "Safely remove" on some operating systems.   [CHAR LIMIT=25] -->
     <string name="sd_eject" product="nosdcard">Unmount shared storage</string>
     <!-- SD card & phone storage settings item title that will result in the phone unmounting the SD card.  This will be done before the user phyiscally removes the SD card from the phone.  Kind of like the "Safely remove" on some operating systems.   -->
-    <string name="sd_eject" product="default">Unmount SD card</string>
+    <string name="sd_eject" product="default">Unmount shared storage</string>
     <!-- SD card & phone storage settings item title that will result in the phone unmounting the SD card.  This will be done before the user phyiscally removes the SD card from the phone.  Kind of like the "Safely remove" on some operating systems.   [CHAR LIMIT=30] -->
     <string name="sd_eject_summary" product="nosdcard">Unmount the internal USB storage</string>
     <!-- SD card & phone storage settings item title that will result in the phone unmounting the SD card.  This will be done before the user phyiscally removes the SD card from the phone.  Kind of like the "Safely remove" on some operating systems.   -->
@@ -1824,21 +1824,21 @@
     <!-- SD card & phone storage settings item title that will result in the phone formatting the USB storage.   [CHAR LIMIT=25] -->
     <string name="sd_format" product="nosdcard">Erase USB storage</string>
     <!-- SD card & phone storage settings item title that will result in the phone formatting the SD card.   [CHAR LIMIT=25] -->
-    <string name="sd_format" product="default">Erase SD card</string>
+    <string name="sd_format" product="default">Erase this storage</string>
     <!-- SD card & phone storage settings item title that will result in the phone unmounting the SD card.   [CHAR LIMIT=80] -->
     <string name="sd_format_summary" product="nosdcard">Erases all data on the internal USB storage, such as music and photos</string>
     <!-- SD card & phone storage settings item title that will result in the phone unmounting the SD card.   [CHAR LIMIT=80] -->
-    <string name="sd_format_summary" product="default">Erases all data on the SD card, such as music and photos</string>
+    <string name="sd_format_summary" product="default">Erases all data on the storage, such as music and photos</string>
     <!-- SD card status when it is mounted as read only. Will be appended to size, starts with an unbreakable space -->
     <string name="read_only">\u0020(Read-only)</string>
     <!-- SD card eject confirmation dialog title   [CHAR LIMIT=25] -->
     <string name="dlg_confirm_unmount_title" product="nosdcard">Unmount USB storage?</string>
     <!-- SD card eject confirmation dialog title   -->
-    <string name="dlg_confirm_unmount_title" product="default">Unmount SD card?</string>
+    <string name="dlg_confirm_unmount_title" product="default">Unmount this storage?</string>
     <!-- SD card eject confirmation dialog  [CHAR LIMIT=NONE] -->
     <string name="dlg_confirm_unmount_text" product="nosdcard">If you unmount the USB storage, some apps you are using will stop and may be unavailable until you remount the USB storage.</string>
     <!-- SD card eject confirmation dialog  -->
-    <string name="dlg_confirm_unmount_text" product="default">If you unmount the SD card, some apps you are using will stop and may be unavailable until you remount the SD card.</string>
+    <string name="dlg_confirm_unmount_text" product="default">If you unmount the storage, some apps you are using will stop and may be unavailable until you remount the SD card.</string>
     <!-- SD card eject error dialog title   [CHAR LIMIT=30] -->
     <string name="dlg_error_unmount_title" product="nosdcard"></string>
     <!-- SD card eject error dialog title   -->
@@ -1846,11 +1846,11 @@
     <!-- SD card eject error dialog text   [CHAR LIMIT=NONE] -->
     <string name="dlg_error_unmount_text" product="nosdcard">Couldn\'t unmount USB storage. Try again later.</string>
     <!-- SD card eject error dialog text   -->
-    <string name="dlg_error_unmount_text" product="default">Couldn\'t unmount SD card. Try again later.</string>
+    <string name="dlg_error_unmount_text" product="default">Couldn\'t unmount this storage. Try again later.</string>
     <!-- SD card unmount informative text   [CHAR LIMIT=NONE] -->
     <string name="unmount_inform_text" product="nosdcard">USB storage will be unmounted.</string>
     <!-- SD card unmount informative text   [CHAR LIMIT=NONE] -->
-    <string name="unmount_inform_text" product="default">SD card will be unmounted.</string>
+    <string name="unmount_inform_text" product="default">This storage will be unmounted.</string>
     <!-- SD card eject progress title   -->
     <string name="sd_ejecting_title">Unmounting</string>
     <!-- SD card eject progress text   -->
@@ -3188,6 +3188,11 @@ found in the list of installed apps.</string>
     <string name="backup_section_title">Backup &amp; restore</string>
     <!-- Personal data section title -->
     <string name="personal_data_section_title">Personal data</string>
+    <!-- system update  -->
+    <string name="system_update_section_title" msgid="7815209034443782061">"System upgrade"</string>
+    <string name="system_recovery_title" msgid="7815209034443782061">"Recovery Mode"</string>
+    <string name="system_recovery_summary" msgid="7815209034443782061">"Reboot into the system in Recovery Mode.Can clear the data or system upgrade"</string>
+    <string name="system_recovery_dialog_massage" msgid="7815209034443782061">"Now reboot into System Recovery Mode, you can partition to remove data or system upgrade?"</string>
     <!-- Backup data menu title -->
     <string name="backup_data_title">Back up my data</string>
     <!-- Summary text of the "back up data" setting -->
@@ -3781,5 +3786,58 @@ found in the list of installed apps.</string>
     from their cell phone carrier. The use of the string is similar to the string
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
+    <!-- ++++++++++++++++++++++++++++++++++++++++++ -->
+    <!--           new strings for crane            -->
+    <string name="tscalibration_title">Calibrating the touch screen</string>
+    
+    <string name="accelerometer_coordinate_title">Accelerometer coordinate system</string>
+    
+    <!-- Screen Adaption -->
+    <string name="screen_adaption_title">Enable screen adaption</string>
+    <string name="screen_adaption_summary">Used to adjust size of some games display screen .</string>
+    <string name="screen_adaption_summary_off">The current resolution:</string>
+    <string name="screen_adaption_summary_on">Works after restart</string>
+    <string name="display_mode_selector_title">Display mode</string>
+    <string name="screen_adaption_setting">screen adaption</string>
+    
+    <string name="never_sleep">Never sleep</string>
+    
+    <string name="media_scan_title">Enable media scanning on %1$s</string>
+    <string name="google_market_is_not_found">Application market is not found.</string>
+    <string name="default_tts_speech_is_not_found">Please choice a default tts speech engine and choice a default language.</string>
 
+	<!-- Begin ethernet configure add by shuge @@@@@ -->
+	<string name="eth_settings_title">Ethernet</string>
+	<string name="eth_toggle_title">Use Ethernet</string>
+	<string name="eth_settings">Ethernet Settings</string>
+	<string name="eth_devices">Ethernet Devices</string>
+	<string name="eth_conf">Ethernet Configure</string>
+	<string name="eth_ip_address">IP Address</string>
+	<string name="eth_ip_string">0.0.0.0</string>
+	<string name="eth_mac_address">MAC Address</string>
+	<string name="eth_mac_string">00:00:00:00:00:00</string>
+	<string name="eth_advanced_configure">Advanced Configure</string>
+	<string name="eth_mask_address">Mask Address</string>
+	<string name="eth_dns_address">DNS Server</string>
+	<string name="eth_gw_address">GateWay</string>
+	<string name="eth_dhcp_choice">DHCP</string>
+	<string name="eth_dev_more">None Device</string>
+	<string name="eth_dev_summaryoff">DISCONNECTED</string>
+	<string name="eth_dev_summaryon">CONNECTED -- USED DEVICE: </string>
+	
+	<string name="eth_link_status">Link Status</string>
+	<string name="eth_link_mode">Link Mode</string>
+	<string name="eth_ip_mode">IP Mode: </string>
+	<string name="eth_dhcp_mode">DHCP</string>
+	<string name="eth_manual_mode">MANUAL</string>
+	<string name="eth_ok">Ok</string>
+	<string name="eth_cancel">Cancel</string>
+	<string name="eth_advand">Advand</string>
+	<string name="eth_message">Are you apply this device?</string>
+	<!-- End ethernet configure add by shuge @@@@@ -->
+
+	<!--Begin wifi direct disconnect prompt add by wujinliang -->
+	<string name="wifi_direct_disconnect_title">Disconnected</string>
+	<string name="wifi_direct_disconnect_message">Do you want to disconnect?</string>
+	<!-- End wifi direct disconnect prompt add by wujinliang -->
 </resources>

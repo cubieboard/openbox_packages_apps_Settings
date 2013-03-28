@@ -56,15 +56,15 @@
     <string name="radioInfo_lac" msgid="8415219164758307156">"LAC"</string>
     <string name="radioInfo_cid" msgid="4362599198392643138">"CID"</string>
     <string name="sdcard_unmount" product="nosdcard" msgid="6325292633327972272">"卸载 USB 存储设备"</string>
-    <string name="sdcard_unmount" product="default" msgid="3364184561355611897">"卸载 SD 卡"</string>
+    <string name="sdcard_unmount" product="default" msgid="3364184561355611897">"卸载存储设备"</string>
     <string name="sdcard_format" product="nosdcard" msgid="6285310523155166716">"格式化 USB 存储设备"</string>
-    <string name="sdcard_format" product="default" msgid="6713185532039187532">"格式化 SD 卡"</string>
+    <string name="sdcard_format" product="default" msgid="6713185532039187532">"格式化内部存储设备"</string>
     <string name="small_font" msgid="2295331917424072635">"小"</string>
     <string name="medium_font" msgid="2068475425515133701">"中"</string>
     <string name="large_font" msgid="599055175160971446">"大"</string>
     <string name="font_size_save" msgid="3450855718056759095">"确定"</string>
     <string name="sdcard_setting" product="nosdcard" msgid="8281011784066476192">"USB 存储设备"</string>
-    <string name="sdcard_setting" product="default" msgid="5922637503871474866">"SD 卡"</string>
+    <string name="sdcard_setting" product="default" msgid="5922637503871474866">"存储设备"</string>
     <string name="battery_info_status_label" msgid="8109155295509700309">"电池状态："</string>
     <string name="battery_info_power_label" msgid="7465140230991349382">"是否已插电："</string>
     <string name="battery_info_scale_label" msgid="3649763192389778437">"电池电量："</string>
@@ -228,19 +228,19 @@
     <string name="sdcard_settings_screen_mass_storage_text" msgid="3741220147296482474">"启用 USB 大容量存储设备"</string>
     <string name="sdcard_settings_total_bytes_label" msgid="9184160745785062144">"总字节数："</string>
     <string name="sdcard_settings_not_present_status" product="nosdcard" msgid="2902787003418172125">"未装载 USB 存储设备"</string>
-    <string name="sdcard_settings_not_present_status" product="default" msgid="6666688653496819947">"无 SD 卡"</string>
+    <string name="sdcard_settings_not_present_status" product="default" msgid="6666688653496819947">"无存储设备"</string>
     <string name="sdcard_settings_available_bytes_label" msgid="763232429899373001">"可用的字节数："</string>
     <string name="sdcard_settings_mass_storage_status" product="nosdcard" msgid="2736378870889777857">"USB 存储设备已被用作大容量存储设备"</string>
-    <string name="sdcard_settings_mass_storage_status" product="default" msgid="4786433969313661655">"SD 卡已被视为大容量存储设备"</string>
+    <string name="sdcard_settings_mass_storage_status" product="default" msgid="4786433969313661655">"该存储设备已被视为大容量存储设备"</string>
     <string name="sdcard_settings_unmounted_status" product="nosdcard" msgid="6691584887397909775">"现在可以安全地移除该 USB 存储设备了"</string>
     <string name="sdcard_settings_unmounted_status" product="default" msgid="7189526306223689608">"现在可以安全地移除该 SD 卡了"</string>
     <string name="sdcard_settings_bad_removal_status" product="nosdcard" msgid="7761390725880773697">"USB 存储设备仍在使用中便被移除！"</string>
-    <string name="sdcard_settings_bad_removal_status" product="default" msgid="5145797653495907970">"SD 卡仍在使用中便被移除！"</string>
+    <string name="sdcard_settings_bad_removal_status" product="default" msgid="5145797653495907970">"存储设备仍在使用中便被移除！"</string>
     <string name="sdcard_settings_used_bytes_label" msgid="8820289486001170836">"已使用的字节数："</string>
     <string name="sdcard_settings_scanning_status" product="nosdcard" msgid="7503429447676219564">"正在扫描 USB 存储设备中的媒体..."</string>
-    <string name="sdcard_settings_scanning_status" product="default" msgid="2763464949274455656">"正从 SD 卡扫描媒体..."</string>
+    <string name="sdcard_settings_scanning_status" product="default" msgid="2763464949274455656">"正从存储设备中扫描媒体..."</string>
     <string name="sdcard_settings_read_only_status" product="nosdcard" msgid="3771783090621312312">"已将 USB 存储设备装载为只读设备"</string>
-    <string name="sdcard_settings_read_only_status" product="default" msgid="5706115860484118911">"安装的 SD 卡为只读状态"</string>
+    <string name="sdcard_settings_read_only_status" product="default" msgid="5706115860484118911">"安装的存储设备为只读状态"</string>
     <string name="skip_label" msgid="47510779345218297">"跳过"</string>
     <string name="next_label" msgid="4693520878012668114">"下一步"</string>
     <string name="language_picker_title" msgid="5349877711342869319">"语言"</string>
@@ -251,7 +251,7 @@
     <string name="phone_info_label" product="tablet" msgid="7820855350955963628">"平板电脑信息"</string>
     <string name="phone_info_label" product="default" msgid="2127552523124277664">"手机信息"</string>
     <string name="sd_card_settings_label" product="nosdcard" msgid="8101475181301178428">"USB 存储设备"</string>
-    <string name="sd_card_settings_label" product="default" msgid="5743100901106177102">"SD 卡"</string>
+    <string name="sd_card_settings_label" product="default" msgid="5743100901106177102">"存储设备"</string>
     <string name="proxy_settings_label" msgid="3271174136184391743">"代理设置"</string>
     <string name="cancel" msgid="6859253417269739139">"取消"</string>
     <string name="settings_label" msgid="1626402585530130914">"设置"</string>
@@ -686,7 +686,7 @@
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"Android 版本"</string>
     <string name="model_number" msgid="3765737700545384794">"型号"</string>
-    <string name="baseband_version" msgid="1848990160763524801">"基带版本"</string>
+    <string name="baseband_version" msgid="1848990160763524801">"固件版本"</string>
     <string name="kernel_version" msgid="9192574954196167602">"内核版本"</string>
     <string name="build_number" msgid="3075795840572241758">"版本号"</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"不可用"</string>
@@ -697,7 +697,7 @@
     <string name="storage_settings" msgid="4211799979832404953">"存储"</string>
     <string name="storage_settings_title" msgid="8746016738388094064">"存储设置"</string>
     <string name="storage_settings_summary" product="nosdcard" msgid="3543813623294870759">"卸载 USB 存储设备，查看可用存储设备"</string>
-    <string name="storage_settings_summary" product="default" msgid="9176693537325988610">"卸载 SD 卡，查看可用存储设备"</string>
+    <string name="storage_settings_summary" product="default" msgid="9176693537325988610">"卸载该存储设备，查看可用存储设备"</string>
     <string name="status_number" product="tablet" msgid="1138837891091222272">"移动目录编号 (MDN)"</string>
     <string name="status_number" product="default" msgid="5123197324870153205">"本机号码"</string>
     <string name="status_min_number" msgid="3519504522179420597">"MIN"</string>
@@ -705,7 +705,7 @@
     <string name="status_prl_version" msgid="8499039751817386529">"PRL 版本"</string>
     <string name="status_meid_number" msgid="1751442889111731088">"MEID"</string>
     <string name="status_icc_id" msgid="943368755577172747">"ICCID"</string>
-    <string name="status_network_type" msgid="3279383550222116235">"手机网络类型"</string>
+    <string name="status_network_type" msgid="3279383550222116235">"移动网络类型"</string>
     <string name="status_data_state" msgid="5503181397066522950">"移动网络状态"</string>
     <string name="status_service_state" msgid="2323931627519429503">"服务状态"</string>
     <string name="status_signal_strength" msgid="3732655254188304547">"信号强度"</string>
@@ -729,31 +729,31 @@
     <string name="memory_dcim_usage" msgid="558887013613822577">"图片、视频"</string>
     <string name="memory_music_usage" msgid="1363785144783011606">"音频文件（音乐、铃声、播客等）"</string>
     <string name="memory_media_misc_usage" msgid="235452944021647124">"其他"</string>
-    <string name="sd_eject" product="nosdcard" msgid="4988563376492400073">"卸载共享存储设备"</string>
-    <string name="sd_eject" product="default" msgid="6915293408836853020">"卸载 SD 卡"</string>
+    <string name="sd_eject" product="nosdcard" msgid="4988563376492400073">"卸载存储设备"</string>
+    <string name="sd_eject" product="default" msgid="6915293408836853020">"卸载存储设备"</string>
     <string name="sd_eject_summary" product="nosdcard" msgid="5009296896648072891">"卸载内部 USB 存储设备"</string>
-    <string name="sd_eject_summary" product="default" msgid="3300599435073550246">"需要先卸载 SD 卡，然后才能将其安全移除"</string>
+    <string name="sd_eject_summary" product="default" msgid="3300599435073550246">"需要先卸载该存储设备，然后才能将其安全移除"</string>
     <string name="sd_insert_summary" product="nosdcard" msgid="5264016886409577313">"插入要装载的 USB 存储设备"</string>
-    <string name="sd_insert_summary" product="default" msgid="2048640010381803841">"插入 SD 卡进行安装"</string>
+    <string name="sd_insert_summary" product="default" msgid="2048640010381803841">"插入要装载的共享存储设备"</string>
     <string name="sd_mount" product="nosdcard" msgid="8966695015677343116">"装载 USB 存储设备"</string>
-    <string name="sd_mount" product="default" msgid="5940523765187704135">"安装 SD 卡"</string>
+    <string name="sd_mount" product="default" msgid="5940523765187704135">"安装该存储设备"</string>
     <string name="sd_mount_summary" product="nosdcard" msgid="4673411327373419641"></string>
     <string name="sd_mount_summary" product="default" msgid="4673411327373419641"></string>
     <string name="sd_format" product="nosdcard" msgid="2148179271623099054">"格式化 USB 存储设备"</string>
-    <string name="sd_format" product="default" msgid="2576054280507119870">"格式化 SD 卡"</string>
+    <string name="sd_format" product="default" msgid="2576054280507119870">"格式化该存储设备"</string>
     <string name="sd_format_summary" product="nosdcard" msgid="6331905044907914603">"清除内部 USB 存储设备中的全部数据，例如音乐和照片"</string>
-    <string name="sd_format_summary" product="default" msgid="212703692181793109">"清除 SD 卡中的全部数据，例如音乐和照片"</string>
+    <string name="sd_format_summary" product="default" msgid="212703692181793109">"清除该存储设备中的全部数据，例如音乐和照片"</string>
     <string name="read_only" msgid="6702420168629076340">" （只读）"</string>
     <string name="dlg_confirm_unmount_title" product="nosdcard" msgid="3077285629197874055">"要卸载 USB 存储设备吗？"</string>
-    <string name="dlg_confirm_unmount_title" product="default" msgid="3634502237262534381">"要卸载 SD 卡吗？"</string>
+    <string name="dlg_confirm_unmount_title" product="default" msgid="3634502237262534381">"要卸载该存储设备？"</string>
     <string name="dlg_confirm_unmount_text" product="nosdcard" msgid="4322636662873269018">"如果卸载该 USB 存储设备，您当前使用的某些应用程序会停止运行，并且在您重新装载该设备前可能都无法使用。"</string>
-    <string name="dlg_confirm_unmount_text" product="default" msgid="6998379994779187692">"如果卸载该 SD 卡，您当前使用的某些应用程序会停止，并且在您重新装载该 SD 卡前，这些应用程序可能都无法使用。"</string>
+    <string name="dlg_confirm_unmount_text" product="default" msgid="6998379994779187692">"如果卸载该该存储设备，您当前使用的某些应用程序会停止，并且在您重新装载该存储设备前，这些应用程序可能都无法使用。"</string>
     <string name="dlg_error_unmount_title" product="nosdcard" msgid="4642742385125426529"></string>
     <string name="dlg_error_unmount_title" product="default" msgid="4642742385125426529"></string>
     <string name="dlg_error_unmount_text" product="nosdcard" msgid="4346280469528260684">"无法卸载 USB 存储设备，请稍后重试。"</string>
-    <string name="dlg_error_unmount_text" product="default" msgid="3073562815631781894">"无法卸载 SD 卡，请稍后重试。"</string>
+    <string name="dlg_error_unmount_text" product="default" msgid="3073562815631781894">"无法卸载该存储设备，请稍后重试。"</string>
     <string name="unmount_inform_text" product="nosdcard" msgid="7120241136790744265">"系统将会卸载 USB 存储设备。"</string>
-    <string name="unmount_inform_text" product="default" msgid="1904212716075458402">"系统将会卸载 SD 卡。"</string>
+    <string name="unmount_inform_text" product="default" msgid="1904212716075458402">"系统将会卸载该存储设备。"</string>
     <string name="sd_ejecting_title" msgid="8824572198034365468">"正在卸载"</string>
     <string name="sd_ejecting_summary" msgid="2028753069184908491">"正在卸载"</string>
     <string name="storage_menu_usb" msgid="5708207885333243384">"USB 计算机连接"</string>
@@ -815,9 +815,9 @@
     <string name="master_clear_desc_erase_external_storage" product="nosdcard" msgid="7744115866662613411">\n\n"要清除音乐、照片和其他用户数据，请清空该 "<b>"USB 存储设备"</b>"。"</string>
     <string name="master_clear_desc_erase_external_storage" product="default" msgid="4801026652617377093">\n\n"要清除音乐、图片和其他用户数据，您需要清空该 "<b>"SD 卡"</b>"。"</string>
     <string name="erase_external_storage" product="nosdcard" msgid="969364037450286809">"格式化 USB 存储设备"</string>
-    <string name="erase_external_storage" product="default" msgid="1397239046334307625">"格式化 SD 卡"</string>
+    <string name="erase_external_storage" product="default" msgid="1397239046334307625">"格式化内部存储设备"</string>
     <string name="erase_external_storage_description" product="nosdcard" msgid="4728558173931599429">"清除该内部 USB 存储设备中的全部数据，例如音乐或照片"</string>
-    <string name="erase_external_storage_description" product="default" msgid="1737638779582964966">"清除 SD 卡中的全部数据，例如音乐或照片"</string>
+    <string name="erase_external_storage_description" product="default" msgid="1737638779582964966">"清除内部存储设备中的全部数据，例如音乐或照片"</string>
     <string name="master_clear_button_text" product="tablet" msgid="3130786116528304116">"重置平板电脑"</string>
     <string name="master_clear_button_text" product="default" msgid="7550632653343157971">"重置手机"</string>
     <string name="master_clear_final_desc" msgid="7209547812233487345">"要清除所有个人信息和下载的应用程序吗？请注意，此操作无法撤消！"</string>
@@ -827,15 +827,15 @@
     <string name="master_clear_failed" msgid="7959646179737950703">"“系统清除”服务不可用，因此未执行重置操作。"</string>
     <string name="master_clear_confirm_title" msgid="7572642091599403668">"要重置吗？"</string>
     <string name="media_format_title" product="nosdcard" msgid="3999653431422767156">"格式化 USB 存储设备"</string>
-    <string name="media_format_title" product="default" msgid="4427528440306787972">"格式化 SD 卡"</string>
+    <string name="media_format_title" product="default" msgid="4427528440306787972">"格式化内部存储"</string>
     <string name="media_format_summary" product="nosdcard" msgid="776603298628082065">"清除 USB 存储设备中的全部数据"</string>
-    <string name="media_format_summary" product="default" msgid="3805714639375830120">"清除 SD 卡上的所有数据"</string>
+    <string name="media_format_summary" product="default" msgid="3805714639375830120">"清除内部存储上的所有数据"</string>
     <string name="media_format_desc" product="nosdcard" msgid="4557243156946319034">"要清空所有 USB 存储设备吗？如果这样做，您会丢失其中存储的"<b>"全部"</b>"数据！"</string>
-    <string name="media_format_desc" product="default" msgid="8764037252319942415">"要清空该 SD 卡吗？如果这样做，您会丢失其中存储的"<b>"全部"</b>"数据！"</string>
+    <string name="media_format_desc" product="default" msgid="8764037252319942415">"要清空内部存储吗？如果这样做，您会丢失其中存储的"<b>"全部"</b>"数据！"</string>
     <string name="media_format_button_text" product="nosdcard" msgid="6293669371185352810">"格式化 USB 存储设备"</string>
-    <string name="media_format_button_text" product="default" msgid="6721544380069373626">"格式化 SD 卡"</string>
+    <string name="media_format_button_text" product="default" msgid="6721544380069373626">"格式化内部存储"</string>
     <string name="media_format_final_desc" product="nosdcard" msgid="699929778486375913">"要清空 USB 存储设备（此操作会删除其中存储的全部文件）吗？请注意，此操作无法撤消！"</string>
-    <string name="media_format_final_desc" product="default" msgid="3344525419872744989">"要清空该 SD 卡（此操作会删除其中存储的全部文件）吗？请注意，此操作无法撤消！"</string>
+    <string name="media_format_final_desc" product="default" msgid="3344525419872744989">"要清空该内部存储（此操作会删除其中存储的全部文件）吗？请注意，此操作无法撤消！"</string>
     <string name="media_format_final_button_text" msgid="4881713344315923175">"清除全部内容"</string>
     <string name="media_format_gesture_prompt" msgid="3109349468816856670">"绘制您的解锁图案"</string>
     <string name="media_format_gesture_explanation" product="nosdcard" msgid="1379736318750958338">"您必须绘制解锁图案，以确认对 USB 存储设备执行格式化操作。"</string>
@@ -1336,6 +1336,10 @@
     <string name="privacy_settings_title" msgid="4856282165773594890">"备份和重置"</string>
     <string name="backup_section_title" msgid="7952232291452882740">"备份和还原"</string>
     <string name="personal_data_section_title" msgid="7815209034443782061">"个人数据"</string>
+    <string name="system_update_section_title" msgid="7815209034443782061">"系统升级"</string>
+    <string name="system_recovery_title" msgid="7815209034443782061">"Recovery模式"</string>
+    <string name="system_recovery_summary" msgid="7815209034443782061">"重启进入系统Recovery模式,可以清除分区数据或系统升级"</string>
+    <string name="system_recovery_dialog_massage" msgid="7815209034443782061">"立即重启进入系统Recovery模式,可以清除分区数据或系统升级？"</string>
     <string name="backup_data_title" msgid="1239105919852668016">"备份我的数据"</string>
     <string name="backup_data_summary" msgid="9157861529438245957">"将应用程序数据、Wi-Fi 密码和其他设置备份到 Google 服务器"</string>
     <string name="backup_configure_account_title" msgid="3790872965773196615">"备份帐户"</string>
@@ -1579,5 +1583,53 @@
     <string name="backup_pw_set_button_text" msgid="2387480910044648795">"设置备份密码"</string>
     <string name="backup_pw_cancel_button_text" msgid="8845630125391744615">"取消"</string>
     <string name="percentage" msgid="5866131581207788624">"<xliff:g id="NUMBER">%d</xliff:g>%%"</string>
-    <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系统更新"</string>
+    
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!--               new strings for crane                  -->
+    <string name="tscalibration_title">"校准触摸屏"</string>
+    <string name="accelerometer_coordinate_title">重力感应坐标系</string>
+    <string name="screen_adaption_title">启用屏幕适配</string>
+    <string name="screen_adaption_summary">用于调整部分游戏的屏幕显示尺寸.</string>
+    <string name="screen_adaption_summary_off">当前分辨率：</string>
+    <string name="screen_adaption_summary_on">点击确认后重启生效</string>
+    <string name="display_mode_selector_title">显示模式</string>
+    <string name="screen_adaption_setting">屏幕适配</string>
+    <string name="never_sleep">从不休眠</string>
+    <string name="media_scan_title">启用 %1$s 上的媒体扫描</string>
+    <string name="google_market_is_not_found">没有找到应用市场.</string>
+    <string name="default_tts_speech_is_not_found">请选择一个默认的TTS语音引擎并设置一种默认语言.</string>
+	<!-- Begin ethernet configure add by shuge @@@@@ -->
+	<string name="eth_settings_title">以太网</string>
+	<string name="eth_toggle_title">使用以太网</string>
+	<string name="eth_settings">以太网设置</string>
+	<string name="eth_devices">以太网设备</string>
+	<string name="eth_conf">以太网配置</string>
+	<string name="eth_ip_address">IP地址</string>
+	<string name="eth_ip_string">0.0.0.0</string>
+	<string name="eth_mac_address">物理地址</string>
+	<string name="eth_mac_string">00:00:00:00:00:00</string>
+	<string name="eth_advanced_configure">高级配置</string>
+	<string name="eth_mask_address">子网掩码</string>
+	<string name="eth_dns_address">DNS服务器</string>
+	<string name="eth_gw_address">默认网关</string>
+	<string name="eth_dhcp_choice">动态分配</string>
+	<string name="eth_dev_more">没有可用设备</string>
+	<string name="eth_dev_summaryoff">未连接</string>
+	<string name="eth_dev_summaryon">已连接 -- 使用设备: </string>
+	
+	<string name="eth_link_status">Link Status</string>
+	<string name="eth_link_mode">Link Mode</string>
+	<string name="eth_ip_mode">IP模式: </string>
+	<string name="eth_dhcp_mode">动态</string>
+	<string name="eth_manual_mode">静态</string>
+	<string name="eth_ok">确定</string>
+	<string name="eth_cancel">取消</string>
+	<string name="eth_advand">高级</string>
+	<string name="eth_message">确定应用此配置到设备?</string>
+	<!-- End ethernet configure add by shuge @@@@@ -->
+
+	<!--Begin wifi direct disconnect prompt add by wujinliang -->
+	<string name="wifi_direct_disconnect_title">"断开连接"</string>
+	<string name="wifi_direct_disconnect_message">"要断开连接?"</string>
+	<!-- End wifi direct disconnect prompt add by wujinliang -->
 </resources>

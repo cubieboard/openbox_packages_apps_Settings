@@ -45,10 +45,12 @@ public class UsbSettings extends SettingsPreferenceFragment {
 
     private static final String KEY_MTP = "usb_mtp";
     private static final String KEY_PTP = "usb_ptp";
+    private static final String KEY_USB_STORAGE = "usb_large_storage";
 
     private UsbManager mUsbManager;
     private CheckBoxPreference mMtp;
     private CheckBoxPreference mPtp;
+    private CheckBoxPreference mUsbStorage;
 
     private final BroadcastReceiver mStateReceiver = new BroadcastReceiver() {
         public void onReceive(Context content, Intent intent) {
@@ -66,6 +68,7 @@ public class UsbSettings extends SettingsPreferenceFragment {
 
         mMtp = (CheckBoxPreference)root.findPreference(KEY_MTP);
         mPtp = (CheckBoxPreference)root.findPreference(KEY_PTP);
+        mUsbStorage = (CheckBoxPreference)root.findPreference(KEY_USB_STORAGE);
 
         return root;
     }
@@ -99,13 +102,16 @@ public class UsbSettings extends SettingsPreferenceFragment {
         if (UsbManager.USB_FUNCTION_MTP.equals(function)) {
             mMtp.setChecked(true);
             mPtp.setChecked(false);
+            mUsbStorage.setChecked(false);
         } else if (UsbManager.USB_FUNCTION_PTP.equals(function)) {
             mMtp.setChecked(false);
             mPtp.setChecked(true);
-        } else  {
+            mUsbStorage.setChecked(false);
+        } else {
             mMtp.setChecked(false);
             mPtp.setChecked(false);
-        }
+            mUsbStorage.setChecked(true);
+        } 
     }
 
     @Override
@@ -131,6 +137,9 @@ public class UsbSettings extends SettingsPreferenceFragment {
         } else if (preference == mPtp) {
             mUsbManager.setCurrentFunction(UsbManager.USB_FUNCTION_PTP, true);
             updateToggles(UsbManager.USB_FUNCTION_PTP);
+        } else if (preference == mUsbStorage){
+            mUsbManager.setCurrentFunction(UsbManager.USB_FUNCTION_MASS_STORAGE, true);
+        	updateToggles(UsbManager.USB_FUNCTION_MASS_STORAGE);
         }
         return true;
     }

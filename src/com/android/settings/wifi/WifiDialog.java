@@ -15,7 +15,7 @@
  */
 
 package com.android.settings.wifi;
-
+import static android.net.wifi.WifiConfiguration.INVALID_NETWORK_ID;
 import com.android.settings.R;
 
 import android.app.AlertDialog;
@@ -56,6 +56,11 @@ class WifiDialog extends AlertDialog implements WifiConfigUiBase {
         setInverseBackgroundForced(true);
         mController = new WifiConfigController(this, mView, mAccessPoint, mEdit);
         super.onCreate(savedInstanceState);
+	if (mAccessPoint != null){
+	    if (mAccessPoint.networkId == INVALID_NETWORK_ID){
+		getSubmitButton().setEnabled(false);
+	    }
+	}
     }
 
     @Override

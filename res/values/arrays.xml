@@ -704,4 +704,33 @@
         <!-- Status message when VPN is failed. -->
         <item>Unsuccessful</item>
     </string-array>
+    
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++ -->    
+    <!--           new array-string for crane          -->
+    <!-- ListPreference accelerometer coornadite -->
+    <string-array name="accelerometer_entries">
+        <item >Default coordinate system</item>
+        <item >Special coordinate system, to support some other games.</item>
+    </string-array>
+    
+    <string-array name="accelerometer_values">
+        <item >default</item>
+        <item >special</item>
+    </string-array>
+    
+    <string-array name="accelerometer_summaries">
+        <item >Accelerometer uses the default coordinate system.</item>
+        <item >Accelerometer uses a special coordinate system, for some games.</item>
+    </string-array>
+    
+    <string-array name="display_mode_list_entries">
+    <!--<item>full</item> -->
+        <item>center</item>
+    </string-array>
+    
+    <!-- Screen Adaption -->
+    <string-array name="display_mode_list_values">
+        <!-- <item>full</item> -->
+        <item>center</item>
+    </string-array>    
 </resources>

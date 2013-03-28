@@ -16,6 +16,11 @@
 
 package com.android.settings.fuelgauge;
 
+import static android.os.Process.PROC_COMBINE;
+import static android.os.Process.PROC_OUT_LONG;
+import static android.os.Process.PROC_SPACE_TERM;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -23,10 +28,13 @@ import android.content.IntentFilter;
 import android.hardware.SensorManager;
 import android.os.BatteryStats;
 import android.os.BatteryStats.Uid;
+import android.os.BatteryStats.Uid.Proc;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.os.Parcel;
+import android.os.ProcStat;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -49,11 +57,17 @@ import com.android.internal.os.PowerProfile;
 import com.android.settings.R;
 import com.android.settings.fuelgauge.PowerUsageDetail.DrainType;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -103,7 +117,10 @@ public class PowerUsageSummary extends PreferenceFragment implements Runnable {
     private ArrayList<BatterySipper> mRequestQueue = new ArrayList<BatterySipper>();
     private Thread mRequestThread;
     private boolean mAbort;
-
+    
+    //add by yaosen
+    private Map<Integer, ProcStat> mRunningAppsMap = new HashMap<Integer, ProcStat>();
+    
     private BroadcastReceiver mBatteryInfoReceiver = new BroadcastReceiver() {
 
         @Override
@@ -372,6 +389,9 @@ public class PowerUsageSummary extends PreferenceFragment implements Runnable {
             addNotAvailableMessage();
             return;
         }
+        
+        //add by yaosen load runningAppsMap
+        loadRunningAppsMap();
         processAppUsage();
         processMiscUsage();
 
@@ -404,7 +424,21 @@ public class PowerUsageSummary extends PreferenceFragment implements Runnable {
         }
     }
 
-    private void processAppUsage() {
+    private void loadRunningAppsMap() {
+    	ActivityManager ams = ((ActivityManager)getActivity().getSystemService(Context.ACTIVITY_SERVICE));
+    	List<RunningAppProcessInfo> appList = ams.getRunningAppProcesses();
+    	mRunningAppsMap.clear();
+    	
+    	for(RunningAppProcessInfo appInfo : appList)
+    	{
+    		ProcStat app = Process.getProc(appInfo.pid);
+    		System.out.println(app);
+    		mRunningAppsMap.put(appInfo.uid,app);
+    	}
+	}
+
+
+	private void processAppUsage() {
         SensorManager sensorManager = (SensorManager)getActivity().getSystemService(
                 Context.SENSOR_SERVICE);
         final int which = mStatsType;
@@ -432,21 +466,35 @@ public class PowerUsageSummary extends PreferenceFragment implements Runnable {
             long cpuFgTime = 0;
             long wakelockTime = 0;
             long gpsTime = 0;
+            
+            if (mRunningAppsMap.get(u.getUid()) == null) {
+				continue;
+			}
+            ProcStat appBatteryInfo  = mRunningAppsMap.get(u.getUid());
+            if (!"r".equalsIgnoreCase(appBatteryInfo.getState()) && !"s".equalsIgnoreCase(appBatteryInfo.getState())){
+            	continue;
+			}
             if (processStats.size() > 0) {
                 // Process CPU time
                 for (Map.Entry<String, ? extends BatteryStats.Uid.Proc> ent
                         : processStats.entrySet()) {
                     if (DEBUG) Log.i(TAG, "Process name = " + ent.getKey());
                     Uid.Proc ps = ent.getValue();
-                    final long userTime = ps.getUserTime(which);
-                    final long systemTime = ps.getSystemTime(which);
-                    final long foregroundTime = ps.getForegroundTime(which);
+                    
+//                    final long userTime = ps.getUserTime(which);
+//                    final long systemTime = ps.getSystemTime(which);
+//                    final long foregroundTime = ps.getForegroundTime(which);
+                    
+                    final long userTime = appBatteryInfo.getUtime()+appBatteryInfo.getCutime();
+                    final long systemTime = appBatteryInfo.getStime()+appBatteryInfo.getCstime();
+                    final long foregroundTime = 0;
+                    
                     cpuFgTime += foregroundTime * 10; // convert to millis
                     final long tmpCpuTime = (userTime + systemTime) * 10; // convert to millis
                     int totalTimeAtSpeeds = 0;
                     // Get the total first
                     for (int step = 0; step < speedSteps; step++) {
-                        cpuSpeedStepTimes[step] = ps.getTimeAtCpuSpeedStep(step, which);
+                        cpuSpeedStepTimes[step] = systemTime;
                         totalTimeAtSpeeds += cpuSpeedStepTimes[step];
                     }
                     if (totalTimeAtSpeeds == 0) totalTimeAtSpeeds = 1;
@@ -454,6 +502,7 @@ public class PowerUsageSummary extends PreferenceFragment implements Runnable {
                     double processPower = 0;
                     for (int step = 0; step < speedSteps; step++) {
                         double ratio = (double) cpuSpeedStepTimes[step] / totalTimeAtSpeeds;
+//                    	double ratio = 145;
                         processPower += ratio * tmpCpuTime * powerCpuNormal[step];
                     }
                     cpuTime += tmpCpuTime;
@@ -738,7 +787,7 @@ public class PowerUsageSummary extends PreferenceFragment implements Runnable {
         addIdleUsage(uSecNow); // Not including cellular idle power
         // Don't compute radio usage if it's a wifi-only device
         if (!com.android.settings.Utils.isWifiOnly(getActivity())) {
-            addRadioUsage(uSecNow);
+          //  addRadioUsage(uSecNow);
         }
     }
 
@@ -804,3 +853,4 @@ public class PowerUsageSummary extends PreferenceFragment implements Runnable {
         }
     };
 }
+

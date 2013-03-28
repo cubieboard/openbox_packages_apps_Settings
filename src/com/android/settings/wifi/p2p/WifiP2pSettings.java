@@ -94,6 +94,7 @@ public class WifiP2pSettings extends SettingsPreferenceFragment
                 if (mWifiP2pManager != null) {
                     mWifiP2pManager.requestPeers(mChannel, WifiP2pSettings.this);
                 }
+                updateDevicePref();
             } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
                 if (mWifiP2pManager == null) return;
                 NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra(
@@ -206,8 +207,8 @@ public class WifiP2pSettings extends SettingsPreferenceFragment
             .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         menu.add(Menu.NONE, MENU_ID_REMOVE_GROUP, 0, R.string.wifi_p2p_menu_remove_group)
             .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        menu.add(Menu.NONE, MENU_ID_ADVANCED, 0, R.string.wifi_p2p_menu_advanced)
-            .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        //menu.add(Menu.NONE, MENU_ID_ADVANCED, 0, R.string.wifi_p2p_menu_advanced)
+            //.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -278,8 +279,8 @@ public class WifiP2pSettings extends SettingsPreferenceFragment
             return mConnectDialog;
         } else if (id == DIALOG_DISCONNECT) {
             AlertDialog dialog = new AlertDialog.Builder(getActivity())
-                .setTitle("Disconnect ?")
-                .setMessage("Do you want to disconnect ?")
+                .setTitle(getActivity().getResources().getString(R.string.wifi_direct_disconnect_title))
+                .setMessage(getActivity().getResources().getString(R.string.wifi_direct_disconnect_message))
                 .setPositiveButton(getActivity().getString(R.string.dlg_ok), mDisconnectListener)
                 .setNegativeButton(getActivity().getString(R.string.dlg_cancel), null)
                 .create();

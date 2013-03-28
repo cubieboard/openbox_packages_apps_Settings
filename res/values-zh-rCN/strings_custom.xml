@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="smart_brightness_title">智能背光</string>
+    <string name="smart_brightness_summary">自动调整背光亮度</string>
+    <string name="smart_brightness_preview">演示模式</string>
+    <string name="hdmi_output_mode">HDMI输出模式</string>
+    <string name="hdmi_output_mode_summary">设置默认的HDMI输出制式</string>
+    
+    <!-- Media Scan -->
+    <string name="media_scan_category">媒体扫描</string>
+    <string name="usb_storage_usage">USB 大容量存储</string>
+</resources>

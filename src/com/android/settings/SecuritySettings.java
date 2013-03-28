@@ -19,7 +19,7 @@ package com.android.settings;
 
 import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 
-import android.app.Activity;
+import com.android.settings.R;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.app.Activity;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -189,7 +190,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // Do not display SIM lock for CDMA phone
         TelephonyManager tm = TelephonyManager.getDefault();
         if ((TelephonyManager.PHONE_TYPE_CDMA == tm.getCurrentPhoneType()) &&
-                (tm.getLteOnCdmaMode() != Phone.LTE_ON_CDMA_TRUE)) {
+                (tm.getLteOnCdmaMode() != Phone.LTE_ON_CDMA_TRUE) || 
+                !getResources().getBoolean(R.bool.has_sim_card_lock)) {
             root.removePreference(root.findPreference(KEY_SIM_LOCK));
         } else {
             // Disable SIM lock if sim card is missing or unknown

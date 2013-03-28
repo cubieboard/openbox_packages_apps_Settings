@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="smart_brightness_title">Smart backlight</string>
+    <string name="smart_brightness_summary">Auto adjust the backlight.</string>
+    <string name="smart_brightness_preview">Preview mode</string>
+    <string name="hdmi_output_mode">HDMI output mode</string>
+    <string name="hdmi_output_mode_summary">Set the default output mode of HDMI</string>
+    
+    <!-- Media scanner -->
+    <string name="media_scan_category">Media scan</string>
+    <string name="usb_storage_usage">USB large storage</string>
+</resources>

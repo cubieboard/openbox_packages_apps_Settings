@@ -368,6 +368,7 @@ public class StorageMeasurement {
         }
 
         private void measureApproximateStorage() {
+        	/*
             final StatFs stat = new StatFs(mStorageVolume != null
                     ? mStorageVolume.getPath() : Environment.getDataDirectory().getPath());
             final long blockSize = stat.getBlockSize();
@@ -378,7 +379,60 @@ public class StorageMeasurement {
             mAvailSize = availableBlocks * blockSize;
 
             sendInternalApproximateUpdate();
+            */
+        	mTotalSize = 0;
+        	mAvailSize = 0;
+        	String devPath = mStorageVolume != null 
+        			? mStorageVolume.getPath() : Environment.getDataDirectory().getPath();
+            StatFs stat = null;
+        	if(hasMultiplePartition(devPath)){
+        		File dev = new File(devPath);
+        		String[] devList = dev.list();
+        		for(String part:devList){
+        			stat = new StatFs(devPath + "/" + part);
+        			long blockSize = stat.getBlockSize();
+        			long totalBlocks = stat.getBlockCount();
+        			long availableBlocks = stat.getAvailableBlocks();
+        			
+        			mTotalSize += totalBlocks * blockSize;
+        			mAvailSize += availableBlocks * blockSize;
+        		}        		
+        	}else{
+        		stat = new StatFs(devPath);
+        		long blockSize = stat.getBlockSize();
+        		long totalBlocks = stat.getBlockCount();
+        		long availableBlocks = stat.getAvailableBlocks();
+        			
+        		mTotalSize = totalBlocks * blockSize;
+        		mAvailSize = availableBlocks * blockSize;
+        	}
+        	sendInternalApproximateUpdate();
         }
+        
+    	private boolean hasMultiplePartition(String devicePath)
+    	{
+			try {
+				File file = new File(devicePath);
+				String major_minor[] = new String[2];
+				String[] list = file.list();
+				if (list.length <= 10) {
+					for (int j = 0; j < list.length; j++) {
+						major_minor = list[j].split("_");
+						if(major_minor == null || major_minor.length != 2){
+							return false;
+						}						
+						try{
+							Integer.valueOf(major_minor[0]);
+							Integer.valueOf(major_minor[1]);
+						} catch (NumberFormatException e){
+							return false;
+						}
+					}
+					return true;
+				} 
+			} catch (Exception e) {}
+			return false;
+    	}
 
         private void measureExactStorage(IMediaContainerService imcs) {
             Context context = mContext != null ? mContext.get() : null;

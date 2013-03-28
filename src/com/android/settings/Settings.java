@@ -575,6 +575,7 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
     public static class StorageSettingsActivity extends Settings { /* empty */ }
     public static class WifiSettingsActivity extends Settings { /* empty */ }
     public static class WifiP2pSettingsActivity extends Settings { /* empty */ }
+    public static class EthernetSettingsActivity extends Settings { /* empty */ }
     public static class InputMethodAndLanguageSettingsActivity extends Settings { /* empty */ }
     public static class InputMethodAndSubtypeEnablerActivity extends Settings { /* empty */ }
     public static class SpellCheckersSettingsActivity extends Settings { /* empty */ }

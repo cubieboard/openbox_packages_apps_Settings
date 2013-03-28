@@ -22,11 +22,13 @@ import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.res.Configuration;
@@ -61,6 +63,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.internal.content.PackageMonitor;
 import com.android.settings.AccessibilitySettings.ToggleSwitch.OnBeforeCheckedChangeListener;
@@ -270,8 +273,10 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
         // Power button ends calls.
         mTogglePowerButtonEndsCallPreference =
             (CheckBoxPreference) findPreference(TOGGLE_POWER_BUTTON_ENDS_CALL_PREFERENCE);
+        PackageManager pm = getPackageManager();
         if (!KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_POWER)
-                || !Utils.isVoiceCapable(getActivity())) {
+                || !Utils.isVoiceCapable(getActivity())
+                || !pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
             mSystemsCategory.removePreference(mTogglePowerButtonEndsCallPreference);
         }
 
@@ -515,7 +520,13 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
                                         DEFAULT_SCREENREADER_MARKET_LINK);
                                 Uri marketUri = Uri.parse(screenreaderMarketLink);
                                 Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
-                                startActivity(marketIntent);
+                                try {
+                                    startActivity(marketIntent);
+                                } catch (ActivityNotFoundException e) {
+                                    Toast.makeText(getActivity(), R.string.google_market_is_not_found, Toast.LENGTH_SHORT).show();
+                                } catch (SecurityException e) {
+                                    Toast.makeText(getActivity(), R.string.google_market_is_not_found, Toast.LENGTH_SHORT).show();
+                                }
                             }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

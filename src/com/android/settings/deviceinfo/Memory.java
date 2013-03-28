@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -33,9 +34,12 @@ import android.os.storage.IMountService;
 import android.os.storage.StorageEventListener;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -47,6 +51,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class Memory extends SettingsPreferenceFragment {
     private static final String TAG = "MemorySettings";
+    
+    private static final String KEY_MEDIA_SCAN_CATEGORY = "media_scan_category" ;
 
     private static final int DLG_CONFIRM_UNMOUNT = 1;
     private static final int DLG_ERROR_UNMOUNT = 2;
@@ -68,6 +74,10 @@ public class Memory extends SettingsPreferenceFragment {
 
     private StorageVolumePreferenceCategory mInternalStorageVolumePreferenceCategory;
     private StorageVolumePreferenceCategory[] mStorageVolumePreferenceCategories;
+    
+    private PreferenceCategory mMediaScanCategory;
+    private CheckBoxPreference mMediaScanSDToggle;
+    private CheckBoxPreference mMediaScanUSBToggle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -107,7 +117,26 @@ public class Memory extends SettingsPreferenceFragment {
         }
 
         // only show options menu if we are not using the legacy USB mass storage support
-        setHasOptionsMenu(!massStorageEnabled);
+        setHasOptionsMenu(true);
+        
+        // media scan
+        mMediaScanCategory = (PreferenceCategory) findPreference(KEY_MEDIA_SCAN_CATEGORY);
+        mMediaScanSDToggle = new CheckBoxPreference(this.getActivity());
+        mMediaScanSDToggle.setTitle(String.format(
+        		getResources().getString(R.string.media_scan_title),"SD"));
+        mMediaScanUSBToggle = new CheckBoxPreference(this.getActivity()); 
+        mMediaScanUSBToggle.setTitle(String.format(
+        		getResources().getString(R.string.media_scan_title),"USB"));
+        mMediaScanCategory.addPreference(mMediaScanSDToggle);
+        mMediaScanCategory.addPreference(mMediaScanUSBToggle);
+        
+        boolean sd = Settings.System.getInt(getActivity().getContentResolver(), 
+                Settings.System.IS_SCAN_TF_CARD, 0) != 0 ? true : false;
+        mMediaScanSDToggle.setChecked(sd);
+        boolean usb = Settings.System.getInt(getActivity().getContentResolver(), 
+                Settings.System.IS_SCAN_USB_HOST, 0) != 0 ? true : false;
+        mMediaScanUSBToggle.setChecked(usb);       
+        
     }
 
     @Override
@@ -222,8 +251,70 @@ public class Memory extends SettingsPreferenceFragment {
                 return true;
             }
         }
-
+        if (mMediaScanSDToggle.equals(preference)){
+        	if(mMediaScanSDToggle.isChecked()){
+        		try{
+                    for(StorageVolumePreferenceCategory category:mStorageVolumePreferenceCategories){
+                    	StorageVolume volume = category.getStorageVolume();
+                    	if(isDeviceMounted(volume) && isSDDevice(volume)){
+                            getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" 
+                                    + volume.getPath().toString())));
+                    	}
+                    }
+                }catch(Exception e){
+                    Log.e(Memory.TAG, "enable media scanning error:" + e);
+                }
+        	}
+        	Settings.System.putInt(getActivity().getContentResolver(), 
+                        Settings.System.IS_SCAN_TF_CARD,mMediaScanSDToggle.isChecked() ? 1 : 0);
+        	return true;
+        }
+        if (mMediaScanUSBToggle.equals(preference)) {
+        	if(mMediaScanUSBToggle.isChecked()){
+        		try{
+                    for(StorageVolumePreferenceCategory category:mStorageVolumePreferenceCategories){
+                    	StorageVolume volume = category.getStorageVolume();
+                    	if(isDeviceMounted(volume) && isSDDevice(volume)){
+                            getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" 
+                                    + volume.getPath().toString())));
+                    	}
+                    }
+                }catch(Exception e){
+                    Log.e(Memory.TAG, "enable media scanning error:" + e);
+                }
+        	}
+        	Settings.System.putInt(getActivity().getContentResolver(), 
+                        Settings.System.IS_SCAN_USB_HOST,mMediaScanUSBToggle.isChecked() ? 1 : 0);
+        	return true;
+        }
         return false;
+    }
+    
+    private boolean isUSBDevice(StorageVolume volume){
+    	if(volume != null && volume.getPath().contains("usb")){
+    		return true;
+    	}else{
+    		return false;
+    	}
+    }
+    
+    private boolean isSDDevice(StorageVolume volume){
+    	if( volume != null && volume.getPath().contains("sd") && 
+                !volume.getPath().contentEquals(Environment.getExternalStorageDirectory().toString())){
+    		return true;
+    	}else{
+    		return false;
+    	}
+    }
+    
+    private boolean isDeviceMounted(StorageVolume volume){
+    	String state = volume != null
+                ? mStorageManager.getVolumeState(volume.getPath()) : null;
+        if(Environment.MEDIA_MOUNTED.equals(state)){
+        	return true;
+        }else{
+        	return false;
+        }
     }
 
     private final BroadcastReceiver mMediaScannerReceiver = new BroadcastReceiver() {

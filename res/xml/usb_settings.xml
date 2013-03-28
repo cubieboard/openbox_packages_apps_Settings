@@ -31,5 +31,8 @@
         android:title="@string/usb_ptp_title"
         android:summary="@string/usb_ptp_summary"
         />
+    <CheckBoxPreference 
+        android:title="@string/usb_storage_usage" 
+        android:key="usb_large_storage"/>
 
 </PreferenceScreen>

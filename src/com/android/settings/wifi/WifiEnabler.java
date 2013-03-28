@@ -95,7 +95,11 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
         boolean isEnabled = wifiState == WifiManager.WIFI_STATE_ENABLED;
         boolean isDisabled = wifiState == WifiManager.WIFI_STATE_DISABLED;
         mSwitch.setChecked(isEnabled);
-        mSwitch.setEnabled(isEnabled || isDisabled);
+        if(isEnabled || isDisabled) {
+        	mSwitch.setEnabled(isEnabled || isDisabled);
+        } else {
+        	mSwitch.setEnabled(true);
+        }
     }
 
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -129,14 +133,16 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
     private void handleWifiStateChanged(int state) {
         switch (state) {
             case WifiManager.WIFI_STATE_ENABLING:
-                mSwitch.setEnabled(false);
+              //  mSwitch.setEnabled(false);
+              	mSwitch.setEnabled(true);
                 break;
             case WifiManager.WIFI_STATE_ENABLED:
                 setSwitchChecked(true);
                 mSwitch.setEnabled(true);
                 break;
             case WifiManager.WIFI_STATE_DISABLING:
-                mSwitch.setEnabled(false);
+               // mSwitch.setEnabled(false);
+                mSwitch.setEnabled(true);
                 break;
             case WifiManager.WIFI_STATE_DISABLED:
                 setSwitchChecked(false);

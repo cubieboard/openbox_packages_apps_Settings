@@ -18,5 +18,9 @@
         android:title="@string/storage_settings_title">
 
 <!-- Preference categories are dynamically created based on the list of available storage volumes -->
-
+        <PreferenceCategory
+            android:title="@string/media_scan_category"
+            android:key="media_scan_category">          
+        </PreferenceCategory>
+        
 </PreferenceScreen>
